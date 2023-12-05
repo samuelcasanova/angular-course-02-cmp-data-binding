@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  tickNumbers: number[] = []
+
+  onIntervalTick(tickCount) {
+    this.tickNumbers.push(tickCount)
+  }
 }

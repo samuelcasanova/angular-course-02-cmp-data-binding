@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-xs-12">
       <h2>Bind it!</h2>
-      <app-game-control/>
+      <app-game-control (intervalTick)="onIntervalTick($event)"/>
+      <ng-container *ngFor="let tickNumber of tickNumbers">
+        <app-even *ngIf="tickNumber % 2 === 0; else oddAlternative" [evenNumber]="tickNumber"/>
+        <ng-template #oddAlternative><app-odd [oddNumber]="tickNumber"/></ng-template>
+      </ng-container>
     </div>
   </div>
 </div>
